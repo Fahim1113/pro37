@@ -28,32 +28,30 @@ class Quiz {
     }
   }
 
-  play(){
-    //write code here to hide question elements
-    question.hide();
-    //write code to change the background color here
-    background("yellow")
-    //write code to show a heading for showing the result of Quiz
-    var quiz=createElement("h2");
-    //call getContestantInfo( ) here
-    getContestantInfo();
-
-    //write condition to check if contestantInfor is not undefined
-    if(allContstents !== undefined){
-      fill("blue");
-      textsize(20)
-    }
-    //write code to add a note here
-    text("*NOTE: Contestants who answered correct are highlighted in gree colour",130,230)
-
-    //write code to highlight contest who answered correctly
-    for(var plr in allContstents){
-      var correctAns="2";
-      if (correctAns === allContstents[plr].answer)
-        fill("green")
-      else
-        fill("red");
-    }
-  }
-
+ play(){ 
+   question.hide();
+   background("Yellow");
+   fill(0);
+   textSize(30); 
+   text("Result of the Quiz",340, 50);
+   text("----------------------------",320, 65);
+   Contestant.getPlayerInfo(); 
+   if(allContestants !== undefined){
+     debugger; var display_Answers = 230;
+     fill("Blue");
+     textSize(20); 
+     text("*NOTE: Contestant who answered correct are highlighted in green color!",130,230);
+     for(var plr in allContestants){
+       debugger; var correctAns = "2";
+       if (correctAns === allContestants[plr].answer)
+         fill("Green")
+       else
+         fill("red"); 
+         display_Answers+=30; 
+         textSize(20);
+         text(allContestants[plr].name + ": " + allContestants[plr].answer, 250,display_Answers) 
+     } 
+   } 
+ } 
+}
 }
